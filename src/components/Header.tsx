@@ -2,7 +2,6 @@ import { Home, Mic, Users, Trophy, Laptop, CircleUser } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export const Header: React.FC = () => {
-    const currentPath = "#";
 
     const menuItems = [
         

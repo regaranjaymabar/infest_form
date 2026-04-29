@@ -1,11 +1,7 @@
 import HomePagePraktek from "./pages/HomaPagePraktek";
-import HomePage from "./pages/HomePage"
 import Competition from "./pages/Competition";
 import Seminar from "./pages/Seminar";
 import Workshop from "./pages/Workshop";
-import Login from "./pages/Login";
-import RegisterEvent from "./pages/RegisterEvent";
-import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./components/layouts/MainLayout";
 import Talkshow from "./pages/Talkshow";

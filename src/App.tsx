@@ -1,22 +1,38 @@
+import HomePagePraktek from "./pages/HomaPagePraktek";
 import HomePage from "./pages/HomePage"
-import LoginForm from "./pages/LoginForm";
+import Competition from "./pages/Competition";
+import Seminar from "./pages/Seminar";
+import Workshop from "./pages/Workshop";
+import Login from "./pages/Login";
 import RegisterEvent from "./pages/RegisterEvent";
 import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./components/layouts/MainLayout";
+import Talkshow from "./pages/Talkshow";
+import AuthLayout from "./components/layouts/AuthLayout";
+import LoginForm from "./pages/LoginForm";
+import RegisterForm from "./pages/RegisterEvent";
+
 
 function App() {
 
   return (
-    <>
-    <div className=" grid max-w-7xl mx-auto contain-content gap-4 ">
-      <HomePage/>
-      <RegisterEvent/>
-      <LoginForm />
-      <Footer/>
-    </div>
-      
+    <BrowserRouter>
+      <Routes>
+        <Route element={<MainLayout/>}>
+         <Route path="/"element={<HomePagePraktek/>}/>
+         <Route path="/competition" element={<Competition/>}/>
+         <Route path="/seminar" element={<Seminar/>}/>
+         <Route path="/workshop" element={<Workshop/>}/>
+         <Route path="/talkshow" element={<Talkshow/>}/>
+        </Route>
 
-    </>
-
+        <Route element={<AuthLayout/>}>
+          <Route path="/login" element={<LoginForm/>}/>
+          <Route path="/register" element={<RegisterForm/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 
 

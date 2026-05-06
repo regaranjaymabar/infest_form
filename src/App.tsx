@@ -8,6 +8,15 @@ import Talkshow from "./pages/Talkshow";
 import AuthLayout from "./components/layouts/AuthLayout";
 import LoginForm from "./pages/LoginForm";
 import RegisterForm from "./pages/RegisterEvent";
+import Dashboardindex from "./pages/Dasboard/DashboardIndex";
+import ProtectedRoute from "./routes/ProtectedRoute,";
+import DashboardLayout from "./components/layouts/DashboardLayout";
+import CategoryIndex from "./pages/Dasboard/category/CategoryIndex";
+import PembicaraIndex from "./pages/Dasboard/Pembicara/PembicaraIndex";
+import EventIndex from "./pages/Dasboard/Event/EventIndex";
+import CategoryCreate from "./pages/Dasboard/category/CategoryCreate";
+import PembicaraCreate from "./pages/Dasboard/Pembicara/PembicaraCreate";
+import EventCreate from "./pages/Dasboard/Event/EventCreate";
 
 
 function App() {
@@ -21,12 +30,26 @@ function App() {
          <Route path="/seminar" element={<Seminar/>}/>
          <Route path="/workshop" element={<Workshop/>}/>
          <Route path="/talkshow" element={<Talkshow/>}/>
+  
         </Route>
 
         <Route element={<AuthLayout/>}>
           <Route path="/login" element={<LoginForm/>}/>
           <Route path="/register" element={<RegisterForm/>}/>
         </Route>
+
+        <Route element={<ProtectedRoute/>} >
+          <Route element={<DashboardLayout/>}>
+            <Route path="/dashboard"element={<Dashboardindex/>}/>
+
+            <Route path="/dashboard/category"element={<CategoryIndex/>}/>
+            <Route path="/dashboard/category/create"element={<CategoryCreate/>}/>
+            <Route path="/dashboard/pembicara/"element={<PembicaraIndex/>}/>
+            <Route path="/dashboard/pembicara/create"element={<PembicaraCreate/>}/>
+            <Route path="/dashboard/event"element={<EventIndex/>}/>
+            <Route path="/dashboard/event/create"element={<EventCreate/>}/>
+          </Route>
+        </Route> 
       </Routes>
     </BrowserRouter>
   );

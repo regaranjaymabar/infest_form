@@ -5,7 +5,10 @@ import { InputPassword } from "../components/ui/InputPassword";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Button from "../components/ui/Button";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import { useAuthStore } from "../components/Store/useAuthStore";
+
 
 
 type FormData = {
@@ -19,6 +22,8 @@ const schema = z.object({
 })
 
 export default function LoginForm(){
+    const navigate = useNavigate();
+    const login = useAuthStore((state) => state.login)
     const { 
         register, 
         handleSubmit, 
@@ -31,6 +36,14 @@ export default function LoginForm(){
     
     const onSubmit = (data: FormData) => {
         console.log(data);
+        if(data.email == "ambalala@gmail.com" && data.password == "ambalala"){
+            alert("login berhasil");
+            login(data.email);
+        
+            navigate("/dashboard");
+        }   else {
+                alert("email arau kata sandi salah")
+        }
     };
 
 
@@ -61,4 +74,8 @@ export default function LoginForm(){
         </div>
     );
 };
+
+// function useNav() {
+//     throw new Error("Function not implemented.");
+// }
 
